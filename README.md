@@ -1,3 +1,25 @@
+# User Stories
+- Users can view app without logging in
+- Users recieve welcome message if not logged in
+- Users can create a user account when logging in
+# Authed Users
+- Can Crude on post
+- Can Crude on locations
+- Can view other post
+
+# Non user Views
+- ('/' home)
+- ('/locations')
+- ('/profile')
+
+# Authed User Views
+- ('/' home)
+- ('/locations')
+- ('/profile')
+- ('/locationsForm')
+- ('/postForm')
+# TBA
+
 # React Template
 [![Netlify Status](https://api.netlify.com/api/v1/badges/339c4ae9-fc7f-41b4-9b49-2dab0a20eaba/deploy-status)](https://app.netlify.com/sites/react-template-21/deploys)
 
