@@ -1,7 +1,7 @@
 # Non User Stories
 - As a viewer, you can be able to see the entire app.
 - As a viewer, you can view the welcome messages.
-- As a viewer, you can be able to press Sign in and have an account created (using google) and are redirected to the '/pickleProfie' view.
+- As a viewer, you can press Sign in and have an account created (using google) and are redirected to the '/pickleProfie' view.
 # User Stories
 - As a user, you can no longer see welcome message.
 - As a user, you can press sign in (using google) to be signed in to your account.
