@@ -8,6 +8,7 @@
 - As a user, you can submit picklePost but typing in the inputs and pressing submit.
 - As a user, when submitting a picklePost, the user should be redirected to '/home' and can view their picklePost.
 - As a user, when submitting a picklePlace, the user can view their picklePlace.
+- As a user, you should be able to select the yellow edit button to edit a users own post.
 - As a user, you can delete post or places by using the RED delete button.
 - As a user, you should be able to select the settings button, and then be able to press the Log out button.
 
