@@ -1,24 +1,15 @@
+# Non User Stories
+- As a viewer, you can be able to see the entire app.
+- As a viewer, you can view the welcome messages.
+- As a viewer, you can be able to press Sign in and have an account created (using google) and are redirected to the '/pickleProfie' view.
 # User Stories
-- Users can view app without logging in
-- Users recieve welcome message if not logged in
-- Users can create a user account when logging in
-# Authed Users
-- Can Crude on post
-- Can Crude on locations
-- Can view other post
-
-# Non user Views
-- ('/' home)
-- ('/locations')
-- ('/profile')
-
-# Authed User Views
-- ('/' home)
-- ('/locations')
-- ('/profile')
-- ('/locationsForm')
-- ('/postForm')
-# TBA
+- As a user, you can no longer see welcome message.
+- As a user, you can press sign in (using google) to be signed in to your account.
+- As a user, you can submit picklePost but typing in the inputs and pressing submit.
+- As a user, when submitting a picklePost, the user should be redirected to '/home' and can view their picklePost.
+- As a user, when submitting a picklePlace, the user can view their picklePlace.
+- As a user, you can delete post or places by using the RED delete button.
+- As a user, you should be able to select the settings button, and then be able to press the Log out button.
 
 # React Template
 [![Netlify Status](https://api.netlify.com/api/v1/badges/339c4ae9-fc7f-41b4-9b49-2dab0a20eaba/deploy-status)](https://app.netlify.com/sites/react-template-21/deploys)
