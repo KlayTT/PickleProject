@@ -4,3 +4,10 @@
 body {
   background-color: $favColor !important;
 }
+
+.card {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 30rem;
+}
