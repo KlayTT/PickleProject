@@ -31,4 +31,36 @@ const deletePost = (firebaseKey) => new Promise((resolve, reject) => {
     .catch(reject);
 });
 
-export { getPost, createPost, deletePost };
+const getSinglePost = (firebaseKey) => new Promise((resolve, reject) => {
+  axios
+    .get(`${baseURL}/picklePost/${firebaseKey}.json`)
+    .then((response) => {
+      resolve(response.data);
+    })
+    .catch(reject);
+});
+
+const updatePost = (firebaseKey, updateObj) => new Promise((resolve, reject) => {
+  axios
+    .patch(`${baseURL}/picklePost/${firebaseKey}.json`, updateObj)
+    .then(() => getPost().then(resolve))
+    .catch(reject);
+});
+
+const getPostLocation = () => new Promise((resolve, reject) => {
+  getPost()
+    .then((picklePostArray) => {
+      const postLocation = picklePostArray.filter((post) => post.location);
+      resolve(postLocation);
+    })
+    .catch(reject);
+});
+
+export {
+  getPost,
+  createPost,
+  deletePost,
+  getSinglePost,
+  updatePost,
+  getPostLocation,
+};

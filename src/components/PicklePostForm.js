@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
+import { useHistory } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import { createPost } from '../api/data/postApi';
+import { createPost, updatePost } from '../api/data/postApi';
 
 const initialState = {
   description: '',
@@ -14,6 +15,7 @@ const initialState = {
 
 export default function PicklePostForm({ obj }) {
   const [formInput, setFormInput] = useState(initialState);
+  const history = useHistory();
 
   useEffect(() => {
     if (obj.firebaseKey) {
@@ -39,9 +41,15 @@ export default function PicklePostForm({ obj }) {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (obj) {
+    if (obj.firebaseKey) {
+      updatePost(obj.firebaseKey, formInput).then(() => {
+        resetForm();
+        history.push('/');
+      });
+    } else {
       createPost({ ...formInput }).then(() => {
         resetForm();
+        history.push('/');
       });
     }
   };
