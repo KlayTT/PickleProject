@@ -9,7 +9,7 @@ import SearchBar from '../components/SearchFilter';
 
 export default function Home() {
   const [posts, setPosts] = useState([]);
-  // const [data, setData] = useState([]);
+  const [filteredData, setFilteredData] = useState([]);
 
   useEffect(() => {
     getPost().then(setPosts);
@@ -41,12 +41,20 @@ export default function Home() {
         </div>
       </div>
       <div className="search-filter">
-        <SearchBar placeholder="Search by Location" key={posts} data={posts} />
+        <SearchBar
+          placeholder="Search by Location"
+          func={setFilteredData}
+          data={posts}
+        />
       </div>
       <div className="home-post-cards">
-        {posts.map((post) => (
-          <Post key={post.firebaseKey} post={post} setPosts={setPosts} />
-        ))}
+        {filteredData.length
+          ? filteredData.map((post) => (
+            <Post key={post.firebaseKey} post={post} setPosts={setPosts} />
+          ))
+          : posts.map((post) => (
+            <Post key={post.firebaseKey} post={post} setPosts={setPosts} />
+          ))}
       </div>
     </div>
   );
