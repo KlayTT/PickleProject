@@ -1,11 +1,11 @@
 import React from 'react';
-// import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { deletePost, getPost } from '../api/data/postApi';
 
 export default function Post({ post, setPosts }) {
   const handleDelete = (method) => {
-    if (method === 'delete') {
+    if (method === 'Delete') {
       deletePost(post.firebaseKey).then(() => {
         getPost().then(setPosts);
       });
@@ -33,6 +33,12 @@ export default function Post({ post, setPosts }) {
               <p className="card-text">
                 <small className="text-muted">{post.websiteLink}</small>
               </p>
+              <Link
+                to={`/edit/${post.firebaseKey}`}
+                className="btn btn-outline-warning"
+              >
+                Edit
+              </Link>
               <button
                 onClick={() => handleDelete('Delete')}
                 className="btn btn-outline-danger"
