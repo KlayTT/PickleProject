@@ -13,9 +13,9 @@ export default function IndexRoutes({ user }) {
 }
 
 IndexRoutes.propTypes = {
-  user: PropTypes.string,
+  user: PropTypes.shape(PropTypes.obj),
 };
 
 IndexRoutes.defaultProps = {
-  user: '',
+  user: null,
 };

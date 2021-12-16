@@ -11,7 +11,6 @@ function Initialize() {
     firebase.auth().onAuthStateChanged((authed) => {
       if (authed) {
         const userInfoObj = {
-          fullName: authed.displayName,
           uid: authed.uid,
         };
         setUser(userInfoObj);

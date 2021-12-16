@@ -73,9 +73,9 @@ export default function Navbar({ user }) {
 }
 
 Navbar.propTypes = {
-  user: PropTypes.string,
+  user: PropTypes.shape(PropTypes.obj),
 };
 
 Navbar.defaultProps = {
-  user: '',
+  user: null,
 };

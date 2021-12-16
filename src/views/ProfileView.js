@@ -38,9 +38,9 @@ export default function ProfileView({ user }) {
 }
 
 ProfileView.propTypes = {
-  user: PropTypes.string,
+  user: PropTypes.shape(PropTypes.obj),
 };
 
 ProfileView.defaultProps = {
-  user: '',
+  user: null,
 };

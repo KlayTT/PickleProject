@@ -1,10 +1,10 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import EditProfileForm from '../components/EditProfileForm';
 import PicklePostForm from '../components/PicklePostForm';
 import EditPost from '../views/EditPost';
 import ProfileView from '../views/ProfileView';
+import ProfileEditView from '../views/ProfileEditView';
 
 export default function UserRoutes({ user }) {
   return (
@@ -28,7 +28,7 @@ export default function UserRoutes({ user }) {
         <Route
           exact
           path="/editProfile/:key"
-          component={() => <EditProfileForm user={user} />}
+          component={() => <ProfileEditView user={user} />}
         />
       </Switch>
     </>
@@ -36,9 +36,9 @@ export default function UserRoutes({ user }) {
 }
 
 UserRoutes.propTypes = {
-  user: PropTypes.string,
+  user: PropTypes.shape(PropTypes.obj),
 };
 
 UserRoutes.defaultProps = {
-  user: '',
+  user: null,
 };
