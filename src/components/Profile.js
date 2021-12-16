@@ -1,5 +1,5 @@
 import React from 'react';
-// import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { deleteProfile, getProfile } from '../api/data/profileApi';
 
@@ -18,6 +18,12 @@ export default function Profile({ profile, setProfiles }) {
         <div className="card-body">
           <h5 className="card-title">{profile.name}</h5>
           <p className="card-text">{profile.location}</p>
+          <Link
+            to={`/editProfile/${profile.firebaseKey}`}
+            className="btn btn-outline-warning"
+          >
+            Edit
+          </Link>
           <button
             onClick={() => handleDelete('Delete')}
             className="btn btn-outline-danger"

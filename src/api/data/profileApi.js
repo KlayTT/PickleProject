@@ -10,19 +10,21 @@ const getProfile = () => new Promise((resolve, reject) => {
     .catch(reject);
 });
 
-// const createProfile = (obj) => new Promise((resolve, reject) => {
-//   axios
-//     .post(`${baseURL}/pickleProfile.json`, obj)
-//     .then((response) => {
-//       const firebaseKey = response.data.name;
-//       axios
-//         .patch(`${baseURL}/pickleProfile/${firebaseKey}.json`, { firebaseKey })
-//         .then(() => {
-//           getProfile().then(resolve);
-//         });
-//     })
-//     .catch(reject);
-// });
+const createProfile = (obj) => new Promise((resolve, reject) => {
+  axios
+    .post(`${baseURL}/pickleProfiles.json`, obj)
+    .then((response) => {
+      const firebaseKey = response.data.name;
+      axios
+        .patch(`${baseURL}/pickleProfiles/${firebaseKey}.json`, {
+          firebaseKey,
+        })
+        .then(() => {
+          getProfile().then(resolve);
+        });
+    })
+    .catch(reject);
+});
 
 const deleteProfile = (firebaseKey) => new Promise((resolve, reject) => {
   axios
@@ -48,5 +50,9 @@ const updateProfile = (firebaseKey, updateObj) => new Promise((resolve, reject) 
 });
 
 export {
-  getProfile, deleteProfile, getSingleProfile, updateProfile,
+  getProfile,
+  deleteProfile,
+  getSingleProfile,
+  updateProfile,
+  createProfile,
 };
