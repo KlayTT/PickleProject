@@ -23,38 +23,39 @@ export default function Navbar({ user }) {
             <span className="navbar-toggler-icon" />
           </button>
           <div className="collapse navbar-collapse" id="navbarText">
-            <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-              <li className="nav-item">
-                <Link
-                  className="nav-link active"
-                  aria-current="page"
-                  to="/picklePostForm"
-                >
-                  Pickle Post
-                </Link>
-              </li>
-              <li className="nav-item">
-                <Link className="nav-link" to="/picklePlace">
-                  Pickle Place
-                </Link>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link" href="/pickleProfile">
-                  Pickle Profile
-                </a>
-              </li>
-            </ul>
+            {user ? (
+              <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+                <li className="nav-item">
+                  <Link
+                    className="nav-link active"
+                    aria-current="page"
+                    to="/picklePostForm"
+                  >
+                    Pickle Post
+                  </Link>
+                </li>
+                <li className="nav-item">
+                  <Link className="nav-link" to="/picklePlace">
+                    Pickle Place
+                  </Link>
+                </li>
+                <li className="nav-item">
+                  <a className="nav-link" href="/pickleProfile">
+                    Pickle Profile
+                  </a>
+                </li>
+              </ul>
+            ) : null}
+
             <div>
               {user ? (
-                <>
-                  <button
-                    onClick={signOutUser}
-                    type="button"
-                    className="btn btn-danger border border-dark"
-                  >
-                    Log Out
-                  </button>
-                </>
+                <button
+                  onClick={signOutUser}
+                  type="button"
+                  className="btn btn-danger border border-dark"
+                >
+                  Log Out
+                </button>
               ) : (
                 <button
                   onClick={signInUser}
@@ -73,9 +74,5 @@ export default function Navbar({ user }) {
 }
 
 Navbar.propTypes = {
-  user: PropTypes.shape(PropTypes.obj),
-};
-
-Navbar.defaultProps = {
-  user: null,
+  user: PropTypes.bool.isRequired,
 };

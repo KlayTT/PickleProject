@@ -4,12 +4,7 @@ import UserRoutes from './UserRoutes';
 import NonUserRoutes from './NonUserRoutes';
 
 export default function IndexRoutes({ user }) {
-  return (
-    <>
-      {user ? <UserRoutes user={user} /> : ''}
-      <NonUserRoutes />
-    </>
-  );
+  return <>{user ? <UserRoutes user={user} /> : <NonUserRoutes />}</>;
 }
 
 IndexRoutes.propTypes = {
