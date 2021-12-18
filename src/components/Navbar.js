@@ -1,8 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { signInUser } from '../api/auth';
+import PropTypes from 'prop-types';
+import { signInUser, signOutUser } from '../api/auth';
 
-export default function Navbar() {
+export default function Navbar({ user }) {
   return (
     <div>
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
@@ -43,16 +44,38 @@ export default function Navbar() {
                 </a>
               </li>
             </ul>
-            <button
-              onClick={signInUser}
-              type="button"
-              className="btn btn-danger border border-dark"
-            >
-              Log In
-            </button>
+            <div>
+              {user ? (
+                <>
+                  <button
+                    onClick={signOutUser}
+                    type="button"
+                    className="btn btn-danger border border-dark"
+                  >
+                    Log Out
+                  </button>
+                </>
+              ) : (
+                <button
+                  onClick={signInUser}
+                  type="button"
+                  className="btn btn-danger border border-dark"
+                >
+                  Log In
+                </button>
+              )}
+            </div>
           </div>
         </div>
       </nav>
     </div>
   );
 }
+
+Navbar.propTypes = {
+  user: PropTypes.string,
+};
+
+Navbar.defaultProps = {
+  user: '',
+};

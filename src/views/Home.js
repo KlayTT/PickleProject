@@ -1,25 +1,16 @@
 import React, { useEffect, useState } from 'react';
+import PropTypes from 'prop-types';
 import Post from '../components/Post';
 import { getPost } from '../api/data/postApi';
 import SearchBar from '../components/SearchFilter';
 
-// const initialState = {
-//   location: '',
-// };
-
-export default function Home() {
+export default function Home({ user }) {
   const [posts, setPosts] = useState([]);
   const [filteredData, setFilteredData] = useState([]);
 
   useEffect(() => {
     getPost().then(setPosts);
   }, []);
-
-  // console.warn(data);
-
-  // useEffect(() => {
-  //   getPostLocation().then(setPosts);
-  // }, []);
 
   return (
     <div className="home-page">
@@ -50,12 +41,30 @@ export default function Home() {
       <div className="home-post-cards">
         {filteredData.length
           ? filteredData.map((post) => (
-            <Post key={post.firebaseKey} post={post} setPosts={setPosts} />
+            <Post
+              key={post.firebaseKey}
+              post={post}
+              setPosts={setPosts}
+              user={user}
+            />
           ))
           : posts.map((post) => (
-            <Post key={post.firebaseKey} post={post} setPosts={setPosts} />
+            <Post
+              key={post.firebaseKey}
+              post={post}
+              setPosts={setPosts}
+              user={user}
+            />
           ))}
       </div>
     </div>
   );
 }
+
+Home.propTypes = {
+  user: PropTypes.string,
+};
+
+Home.defaultProps = {
+  user: '',
+};
