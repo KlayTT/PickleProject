@@ -3,9 +3,9 @@ import firebaseConfig from '../apiKeys';
 
 const baseURL = firebaseConfig.databaseURL;
 
-const getProfile = () => new Promise((resolve, reject) => {
+const getProfile = (uid) => new Promise((resolve, reject) => {
   axios
-    .get(`${baseURL}/pickleProfiles.json`)
+    .get(`${baseURL}/pickleProfiles.json?orderBy="uid"&equalTo="${uid}"`)
     .then((response) => resolve(Object.values(response.data)))
     .catch(reject);
 });

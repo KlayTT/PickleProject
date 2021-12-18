@@ -7,7 +7,7 @@ import ProfileView from '../views/ProfileView';
 import ProfileEditView from '../views/ProfileEditView';
 import EditAvatarView from '../views/EditAvatarView';
 
-export default function UserRoutes({ user }) {
+export default function UserRoutes({ user, uid }) {
   return (
     <>
       <Switch>
@@ -24,7 +24,7 @@ export default function UserRoutes({ user }) {
         <Route
           exact
           path="/pickleProfile"
-          component={() => <ProfileView user={user} />}
+          component={() => <ProfileView user={user} uid={uid} />}
         />
         <Route
           exact
@@ -43,6 +43,7 @@ export default function UserRoutes({ user }) {
 
 UserRoutes.propTypes = {
   user: PropTypes.shape(PropTypes.obj),
+  uid: PropTypes.string.isRequired,
 };
 
 UserRoutes.defaultProps = {

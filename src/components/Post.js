@@ -35,7 +35,7 @@ export default function Post({
               <p className="card-text">
                 <small className="text-muted">{post.websiteLink}</small>
               </p>
-              {user ? (
+              {admin ? (
                 <Link
                   to={`/edit/${post.firebaseKey}`}
                   className="btn btn-outline-warning"
@@ -43,7 +43,7 @@ export default function Post({
                   Edit
                 </Link>
               ) : null}
-              {admin ? (
+              {user ? (
                 <Link
                   to={`/edit/${post.firebaseKey}`}
                   className="btn btn-outline-warning"

@@ -19,13 +19,14 @@ function Initialize() {
         };
         setUser(userInfoObj);
         setLoggedIn(true);
+        console.warn(userInfoObj, firebaseConfig.adminUid);
         if (userInfoObj.uid === firebaseConfig.adminUid) {
-          console.warn('Authed');
           setAdmin(userInfoObj);
         }
       } else if (user || user === null) {
         setUser(false);
         setLoggedIn(false);
+        setAdmin(false);
       }
     });
   }, []);
@@ -33,8 +34,8 @@ function Initialize() {
   return (
     <div>
       <Navbar user={loggedIn} />
-      {user && <UserRoutes user={user} admin={admin} />}
-      <NonUserRoutes user={loggedIn} admin={loggedIn} />
+      {user && <UserRoutes uid={user.uid} user={user} admin={admin} />}
+      <NonUserRoutes user={loggedIn} admin={admin} />
     </div>
   );
 }

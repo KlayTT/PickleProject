@@ -1,13 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import { deleteProfile, getSingleProfile } from '../api/data/profileApi';
+import { deleteProfile, getProfile } from '../api/data/profileApi';
 
-export default function Profile({ profile, setProfiles }) {
+export default function Profile({ profile, setProfiles, uid }) {
   const handleDelete = (method) => {
     if (method === 'Delete') {
       deleteProfile(profile.firebaseKey).then(() => {
-        getSingleProfile().then(setProfiles);
+        getProfile(uid).then(setProfiles);
       });
     }
   };
@@ -40,4 +40,5 @@ export default function Profile({ profile, setProfiles }) {
 Profile.propTypes = {
   profile: PropTypes.shape(PropTypes.obj).isRequired,
   setProfiles: PropTypes.func.isRequired,
+  uid: PropTypes.string.isRequired,
 };
