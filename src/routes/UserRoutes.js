@@ -5,6 +5,7 @@ import PicklePostForm from '../components/PicklePostForm';
 import EditPost from '../views/EditPost';
 import ProfileView from '../views/ProfileView';
 import ProfileEditView from '../views/ProfileEditView';
+import EditAvatarView from '../views/EditAvatarView';
 
 export default function UserRoutes({ user }) {
   return (
@@ -29,6 +30,11 @@ export default function UserRoutes({ user }) {
           exact
           path="/editProfile/:key"
           component={() => <ProfileEditView user={user} />}
+        />
+        <Route
+          exact
+          path="/editAvatar/:key"
+          component={() => <EditAvatarView user={user} />}
         />
       </Switch>
     </>

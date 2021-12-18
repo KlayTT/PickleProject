@@ -19,7 +19,7 @@ const getSinglepickleAvatar = (firebaseKey) => new Promise((resolve, reject) => 
     .catch(reject);
 });
 
-const updatepickleAvatar = (firebaseKey, updateObj) => new Promise((resolve, reject) => {
+const updatePickleAvatar = (firebaseKey, updateObj) => new Promise((resolve, reject) => {
   axios
     .patch(`${baseURL}/pickleAvatars/${firebaseKey}.json`, updateObj)
     .then(() => getpickleAvatars().then(resolve))
@@ -36,6 +36,6 @@ const deleteProfileAvatar = (firebaseKey) => new Promise((resolve, reject) => {
 export {
   getpickleAvatars,
   getSinglepickleAvatar,
-  updatepickleAvatar,
+  updatePickleAvatar,
   deleteProfileAvatar,
 };
