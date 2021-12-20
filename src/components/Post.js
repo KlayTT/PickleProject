@@ -50,14 +50,6 @@ export default function Post({ post, setPosts, admin }) {
                   Delete
                 </button>
               ) : null}
-              {/* {user ? (
-                <Link
-                  to={`/edit/${post.firebaseKey}`}
-                  className="btn btn-outline-warning"
-                >
-                  Edit
-                </Link>
-              ) : null} */}
             </div>
           </div>
         </div>

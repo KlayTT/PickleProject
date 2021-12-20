@@ -49,10 +49,18 @@ const updateProfile = (firebaseKey, updateObj) => new Promise((resolve, reject) 
     .catch(reject);
 });
 
+const updateProfileAvi = (uid, updateObj, firebaseKey) => new Promise((resolve, reject) => {
+  axios
+    .patch(`${baseURL}/pickleProfiles/${firebaseKey}.json`, updateObj)
+    .then(() => getProfile(uid).then(resolve))
+    .catch(reject);
+});
+
 export {
   getProfile,
   deleteProfile,
   getSingleProfile,
   updateProfile,
   createProfile,
+  updateProfileAvi,
 };

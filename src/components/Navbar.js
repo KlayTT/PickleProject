@@ -35,11 +35,6 @@ export default function Navbar({ user }) {
                   </Link>
                 </li>
                 <li className="nav-item">
-                  <Link className="nav-link" to="/picklePlace">
-                    Pickle Place
-                  </Link>
-                </li>
-                <li className="nav-item">
                   <a className="nav-link" href="/pickleProfile">
                     Pickle Profile
                   </a>
