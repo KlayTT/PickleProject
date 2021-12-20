@@ -24,7 +24,7 @@ export default function UserRoutes({ user, uid }) {
         <Route
           exact
           path="/pickleProfile"
-          component={() => <ProfileView user={user} uid={uid} />}
+          component={() => <ProfileView uid={uid} />}
         />
         <Route
           exact
