@@ -24,10 +24,9 @@ export default function Home({ user, admin }) {
               Enjoy some Pickle Post below for Locations and Images for Pickles
               you may be searching for.
             </h5>
-            <p className="card-text">Hope you enjoy your time here!</p>
           </div>
           <div className="card-footer bg-transparent border-success">
-            Sign In to create an account
+            Hope you enjoy your time here!
           </div>
         </div>
       </div>

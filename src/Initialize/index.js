@@ -20,7 +20,6 @@ function Initialize() {
         };
         setUser(userInfoObj);
         setLoggedIn(true);
-        console.warn(userInfoObj, firebaseConfig.uid);
         if (userInfoObj.uid === firebaseConfig.adminUid) {
           setAdmin(userInfoObj);
           setAdminLoggedIn(true);
