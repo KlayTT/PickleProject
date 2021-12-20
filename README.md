@@ -1,3 +1,5 @@
+[![Netlify Status](https://api.netlify.com/api/v1/badges/24d2a3e3-b7b7-4991-9e73-34e950a10826/deploy-status)](https://app.netlify.com/sites/pickleplace/deploys)
+
 # Non User Stories
 - As a viewer, you can view post, places, and profiles.
 - As a viewer, you can view the welcome messages.
