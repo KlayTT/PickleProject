@@ -30,6 +30,9 @@ $ cd PickleProject
 
 ## ScreenShot of Home
 ![Home](./homeImg.png)
+![Post Form](./postImg.png)
+![Profile](./profileImg.png)
+
 ### Relevant Links
 - [Site](https://pickleplace.netlify.app/)
 - [ERD](https://dbdiagram.io/d/61a56ea28c901501c0d84ea3)
@@ -50,3 +53,8 @@ $ cd PickleProject
 - [Mary Beth Hunter](https://github.com/marybethhunter)
 ## Shout Out to Nissa as well for being a hype queen, always smiles and positivity that really set a positive environment, thank you!
 - [Nissa McKinney](https://github.com/Nissa2424)
+
+### Tickets I created when I needed help
+- [Search Filter](https://github.com/nss-evening-cohort-16/evening-client-side/discussions/202)
+- [Invalid prop](https://github.com/nss-evening-cohort-16/evening-client-side/discussions/208)
+- [Admin edit showing for all users](https://github.com/nss-evening-cohort-16/evening-client-side/discussions/218)
