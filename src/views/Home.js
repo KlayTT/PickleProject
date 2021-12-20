@@ -4,7 +4,7 @@ import Post from '../components/Post';
 import { getPost } from '../api/data/postApi';
 import SearchBar from '../components/SearchFilter';
 
-export default function Home({ user }) {
+export default function Home({ user, admin }) {
   const [posts, setPosts] = useState([]);
   const [filteredData, setFilteredData] = useState([]);
 
@@ -43,17 +43,19 @@ export default function Home({ user }) {
           ? filteredData.map((post) => (
             <Post
               key={post.firebaseKey}
+              admin={admin}
+              user={user}
               post={post}
               setPosts={setPosts}
-              user={user}
             />
           ))
           : posts.map((post) => (
             <Post
               key={post.firebaseKey}
+              admin={admin}
+              user={user}
               post={post}
               setPosts={setPosts}
-              user={user}
             />
           ))}
       </div>
@@ -62,9 +64,6 @@ export default function Home({ user }) {
 }
 
 Home.propTypes = {
-  user: PropTypes.string,
-};
-
-Home.defaultProps = {
-  user: '',
+  admin: PropTypes.bool.isRequired,
+  user: PropTypes.bool.isRequired,
 };

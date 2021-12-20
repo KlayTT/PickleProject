@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import {
   deleteProfileAvatar,
   getpickleAvatars,
@@ -18,6 +19,12 @@ export default function ProfileAvatar({ avatar, setAvatars }) {
     <>
       <div className="card" style={{ width: '18rem' }}>
         <img src={avatar.avatarImg} className="card-img-top" alt="pickleImg" />
+        <Link
+          to={`/editAvatar/${avatar.firebaseKey}`}
+          className="btn btn-outline-warning"
+        >
+          Edit
+        </Link>
         <button
           onClick={() => handleDelete('Delete')}
           className="btn btn-outline-danger"

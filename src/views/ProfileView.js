@@ -5,12 +5,12 @@ import { getProfile } from '../api/data/profileApi';
 import ProfileAvatar from '../components/ProfileAvatar';
 import { getpickleAvatars } from '../api/data/pickleAvatarsApi';
 
-export default function ProfileView({ user }) {
+export default function ProfileView({ user, uid }) {
   const [profiles, setProfiles] = useState([]);
   const [avatars, setAvatars] = useState([]);
 
   useEffect(() => {
-    getProfile().then(setProfiles);
+    getProfile(uid).then(setProfiles);
     getpickleAvatars().then(setAvatars);
   }, []);
 
@@ -31,6 +31,7 @@ export default function ProfileView({ user }) {
           profile={profile}
           setProfiles={setProfiles}
           user={user}
+          uid={uid}
         />
       ))}
     </>
@@ -38,9 +39,10 @@ export default function ProfileView({ user }) {
 }
 
 ProfileView.propTypes = {
-  user: PropTypes.string,
+  user: PropTypes.shape(PropTypes.obj),
+  uid: PropTypes.string.isRequired,
 };
 
 ProfileView.defaultProps = {
-  user: '',
+  user: null,
 };

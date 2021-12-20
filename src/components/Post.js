@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { deletePost, getPost } from '../api/data/postApi';
 
-export default function Post({ post, setPosts }) {
+export default function Post({ post, setPosts, admin }) {
   const handleDelete = (method) => {
     if (method === 'Delete') {
       deletePost(post.firebaseKey).then(() => {
@@ -33,19 +33,31 @@ export default function Post({ post, setPosts }) {
               <p className="card-text">
                 <small className="text-muted">{post.websiteLink}</small>
               </p>
-              <Link
-                to={`/edit/${post.firebaseKey}`}
-                className="btn btn-outline-warning"
-              >
-                Edit
-              </Link>
-              <button
-                onClick={() => handleDelete('Delete')}
-                className="btn btn-outline-danger"
-                type="button"
-              >
-                Delete
-              </button>
+              {admin ? (
+                <Link
+                  to={`/edit/${post.firebaseKey}`}
+                  className="btn btn-outline-warning"
+                >
+                  Edit
+                </Link>
+              ) : null}
+              {admin ? (
+                <button
+                  onClick={() => handleDelete('Delete')}
+                  className="btn btn-outline-danger"
+                  type="button"
+                >
+                  Delete
+                </button>
+              ) : null}
+              {/* {user ? (
+                <Link
+                  to={`/edit/${post.firebaseKey}`}
+                  className="btn btn-outline-warning"
+                >
+                  Edit
+                </Link>
+              ) : null} */}
             </div>
           </div>
         </div>
@@ -57,4 +69,5 @@ export default function Post({ post, setPosts }) {
 Post.propTypes = {
   post: PropTypes.shape(PropTypes.obj).isRequired,
   setPosts: PropTypes.func.isRequired,
+  admin: PropTypes.bool.isRequired,
 };

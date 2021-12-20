@@ -5,7 +5,7 @@ import { useEffect, useState } from 'react/cjs/react.development';
 import EditProfileForm from '../components/EditProfileForm';
 import { getSingleProfile } from '../api/data/profileApi';
 
-export default function EditPost({ user }) {
+export default function ProfileEditView({ user }) {
   const [editProfile, setEditProfile] = useState({});
   const { key } = useParams();
 
@@ -22,10 +22,10 @@ export default function EditPost({ user }) {
   );
 }
 
-EditPost.propTypes = {
-  user: PropTypes.string,
+ProfileEditView.propTypes = {
+  user: PropTypes.shape(PropTypes.obj),
 };
 
-EditPost.defaultProps = {
-  user: '',
+ProfileEditView.defaultProps = {
+  user: null,
 };
