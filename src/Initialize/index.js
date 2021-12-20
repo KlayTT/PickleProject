@@ -10,6 +10,7 @@ function Initialize() {
   const [user, setUser] = useState(null);
   const [loggedIn, setLoggedIn] = useState(false);
   const [admin, setAdmin] = useState(null);
+  const [adminLoggedIn, setAdminLoggedIn] = useState(false);
 
   useEffect(() => {
     firebase.auth().onAuthStateChanged((authed) => {
@@ -19,14 +20,16 @@ function Initialize() {
         };
         setUser(userInfoObj);
         setLoggedIn(true);
-        console.warn(userInfoObj, firebaseConfig.adminUid);
+        console.warn(userInfoObj, firebaseConfig.uid);
         if (userInfoObj.uid === firebaseConfig.adminUid) {
           setAdmin(userInfoObj);
+          setAdminLoggedIn(true);
         }
       } else if (user || user === null) {
         setUser(false);
         setLoggedIn(false);
         setAdmin(false);
+        setAdminLoggedIn(false);
       }
     });
   }, []);
@@ -35,7 +38,7 @@ function Initialize() {
     <div>
       <Navbar user={loggedIn} />
       {user && <UserRoutes uid={user.uid} user={user} admin={admin} />}
-      <NonUserRoutes user={loggedIn} admin={admin} />
+      <NonUserRoutes user={loggedIn} admin={adminLoggedIn} />
     </div>
   );
 }

@@ -64,6 +64,6 @@ export default function Home({ user, admin }) {
 }
 
 Home.propTypes = {
-  user: PropTypes.bool.isRequired,
   admin: PropTypes.bool.isRequired,
+  user: PropTypes.bool.isRequired,
 };

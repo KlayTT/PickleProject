@@ -3,9 +3,7 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { deletePost, getPost } from '../api/data/postApi';
 
-export default function Post({
-  post, setPosts, user, admin,
-}) {
+export default function Post({ post, setPosts, admin }) {
   const handleDelete = (method) => {
     if (method === 'Delete') {
       deletePost(post.firebaseKey).then(() => {
@@ -43,21 +41,23 @@ export default function Post({
                   Edit
                 </Link>
               ) : null}
-              {user ? (
+              {admin ? (
+                <button
+                  onClick={() => handleDelete('Delete')}
+                  className="btn btn-outline-danger"
+                  type="button"
+                >
+                  Delete
+                </button>
+              ) : null}
+              {/* {user ? (
                 <Link
                   to={`/edit/${post.firebaseKey}`}
                   className="btn btn-outline-warning"
                 >
                   Edit
                 </Link>
-              ) : null}
-              <button
-                onClick={() => handleDelete('Delete')}
-                className="btn btn-outline-danger"
-                type="button"
-              >
-                Delete
-              </button>
+              ) : null} */}
             </div>
           </div>
         </div>
@@ -69,6 +69,5 @@ export default function Post({
 Post.propTypes = {
   post: PropTypes.shape(PropTypes.obj).isRequired,
   setPosts: PropTypes.func.isRequired,
-  user: PropTypes.bool.isRequired,
   admin: PropTypes.bool.isRequired,
 };
