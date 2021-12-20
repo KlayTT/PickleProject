@@ -32,6 +32,9 @@ export default function ProfileAvatar({ avatar, setAvatars }) {
         >
           Delete
         </button>
+        <button type="submit" className="btn btn-info">
+          submit
+        </button>
       </div>
     </>
   );
