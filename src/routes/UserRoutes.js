@@ -29,7 +29,7 @@ export default function UserRoutes({ user, uid }) {
         <Route
           exact
           path="/editProfile"
-          component={() => <ProfileEditView user={user} />}
+          component={() => <ProfileEditView user={user} uid={uid} />}
         />
         <Route
           exact

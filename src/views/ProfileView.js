@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import Profile from '../components/Profile';
 import { getProfile } from '../api/data/profileApi';
 import ProfileAvatar from '../components/ProfileAvatar';
-import { getpickleAvatars } from '../api/data/pickleAvatarsApi';
+import { getpickleAvatarsUid } from '../api/data/pickleAvatarsApi';
 
 export default function ProfileView({ user, uid }) {
   const [profiles, setProfiles] = useState([]);
@@ -11,7 +11,7 @@ export default function ProfileView({ user, uid }) {
 
   useEffect(() => {
     getProfile(uid).then(setProfiles);
-    getpickleAvatars().then(setAvatars);
+    getpickleAvatarsUid(uid).then(setAvatars);
   }, []);
 
   return (
@@ -22,6 +22,7 @@ export default function ProfileView({ user, uid }) {
           avatar={avatar}
           setAvatars={setAvatars}
           user={user}
+          uid={uid}
         />
       ))}
       <p />

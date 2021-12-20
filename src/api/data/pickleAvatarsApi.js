@@ -10,6 +10,13 @@ const getpickleAvatars = () => new Promise((resolve, reject) => {
     .catch(reject);
 });
 
+const getpickleAvatarsUid = (uid) => new Promise((resolve, reject) => {
+  axios
+    .get(`${baseURL}/pickleAvatars.json?orderBy="uid"&equalTo="${uid}"`)
+    .then((response) => resolve(Object.values(response.data)))
+    .catch(reject);
+});
+
 const getSinglepickleAvatar = (firebaseKey) => new Promise((resolve, reject) => {
   axios
     .get(`${baseURL}/pickleAvatars/${firebaseKey}.json`)
@@ -38,4 +45,5 @@ export {
   getSinglepickleAvatar,
   updatePickleAvatar,
   deleteProfileAvatar,
+  getpickleAvatarsUid,
 };
